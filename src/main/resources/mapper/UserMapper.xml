@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.devcorp.demo.mapper.UserMapper">
+    <resultMap id="user" type="cn.devcorp.demo.pojo.User" autoMapping="true">
+      <id column="id" property="id"/>
+      <collection property="orderList" ofType="cn.devcorp.demo.pojo.Order" autoMapping="true">
+          <id column="orderId" property="id"/>
+      </collection>
+    </resultMap>
+    <select id="queryUserOrders" resultMap="user">
+        select user.id as id, name, order.id as orderId,order_time, total, user_id from user inner join `order`
+        on user.id = order.user_id
+        where user.id = #{id}
+    </select>
+</mapper>

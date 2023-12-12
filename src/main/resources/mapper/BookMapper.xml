@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.devcorp.demo.mapper.BookMapper">
+    <resultMap id="book" type="cn.devcorp.demo.pojo.Book" autoMapping="true">
+        <id property="bid" column="bid"/>
+        <collection property="categoryList" ofType="cn.devcorp.demo.pojo.Category" autoMapping="true">
+            <id property="cid" column="cid"/>
+        </collection>
+    </resultMap>
+    <select id="queryBookAndCategory" resultMap="book">
+        select bid,bname,category.cid,category.cname from book inner join middle on book.bid = middle.m_bid
+        inner join category on middle.m_cid = category.cid
+    </select>
+</mapper>
