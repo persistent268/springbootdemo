@@ -75,5 +75,9 @@ public class MpTest {
         List<Student> studentList = students.stream().sorted(Comparator.comparing(Student::getName,Comparator.reverseOrder())).collect(Collectors.toList());
         studentList.forEach(student -> System.out.println(student));
     }
-
+    @Test
+    public void testSelectOne(){
+        Students students = studentsMapper.selectById(10);
+        System.out.println(students);
+    }
 }

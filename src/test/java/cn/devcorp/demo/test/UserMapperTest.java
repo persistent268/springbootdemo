@@ -40,4 +40,16 @@ public class UserMapperTest {
         User user = userMapper.queryUserOrders(id);
         System.out.println(user);
     }
+    @Test
+    public void testUserMp(){
+        Long id = 1L;
+        User user = userMapper.selectById(id);
+        System.out.println(user);
+    }
+    @Test
+    public void testM(){
+        Long id = 1L;
+        User user = userMapper.selectByIdDefine(id);
+        System.out.println(user);
+    }
 }

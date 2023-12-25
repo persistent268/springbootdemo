@@ -14,4 +14,25 @@
         on user.id = order.user_id
         where user.id = #{id}
     </select>
+    <select id="queryUserByWhere" resultType="cn.devcorp.demo.pojo.User">
+        select * from user
+        <where>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            and name = #{name}
+        </where>
+    </select>
+    <select id="queryUserByWhere2" resultType="cn.devcorp.demo.pojo.User">
+        select * from user
+        <where>
+            name = #{name}
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+    <select id="selectByIdDefine" resultType="cn.devcorp.demo.pojo.User">
+        select * from user where id = #{id}
+    </select>
 </mapper>

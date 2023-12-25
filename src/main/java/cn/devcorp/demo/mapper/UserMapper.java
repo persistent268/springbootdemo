@@ -4,6 +4,8 @@ import cn.devcorp.demo.pojo.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * Description: TODO
  *
@@ -16,5 +18,9 @@ import org.apache.ibatis.annotations.Param;
  * </pre>
  */
 public interface UserMapper extends BaseMapper<User> {
+    List<User> queryUserByWhere(User user);
+    List<User> queryUserByWhere2(User user);
     User queryUserOrders(@Param("id") Long id);
+
+    User selectByIdDefine(@Param("id") Long id);
 }

@@ -1,6 +1,9 @@
 package cn.devcorp.demo.pojo;
 
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.Tolerate;
+
+import java.util.Objects;
 
 /**
  * Description: TODO
@@ -13,8 +16,11 @@ import lombok.Data;
  *      Copyright (c) 2019. All Rights Reserved.
  * </pre>
  */
-@Data
 public class Lom {
     private String name;
-    private Integer age;
+    private Long parentid;
+
+    public Long getParentid() {
+        return parentid;
+    }
 }

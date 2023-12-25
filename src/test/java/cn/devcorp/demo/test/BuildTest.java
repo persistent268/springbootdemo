@@ -1,6 +1,5 @@
 package cn.devcorp.demo.test;
 
-import cn.devcorp.demo.pojo.Lom;
 import cn.devcorp.demo.pojo.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * Description: TODO
  *
  * @author YK107
- * @date 2023/11/26 21:11
+ * @date 2023/12/13 8:37
  *
  * <pre>
  *              www.cloudscope.cn
@@ -17,14 +16,10 @@ import org.springframework.boot.test.context.SpringBootTest;
  * </pre>
  */
 @SpringBootTest
-public class LomBokTest {
+public class BuildTest {
     @Test
-    public void testBuild(){
-        Person person = Person.builder().name("张三").age(13).address("北京").build();
+    public void testBuildPerson(){
+        Person person = Person.builder().name(null).age(18).address("bj").build();
         System.out.println(person);
-    }
-    @Test
-    public void testData(){
-
     }
 }

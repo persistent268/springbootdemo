@@ -1,5 +1,7 @@
 package cn.devcorp.demo.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.ToString;
 
@@ -15,9 +17,9 @@ import lombok.ToString;
  * </pre>
  */
 @Data
-@ToString
 public class Students {
-    private Integer studentId;
+    @TableId("student_id")
+    private Integer id;
     private String studentName;
     private String subject;
     private Integer score;
