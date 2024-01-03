@@ -35,7 +35,7 @@ import java.util.UUID;
  *      Copyright (c) 2019. All Rights Reserved.
  * </pre>
  */
-@RestController
+@RestController("userController")
 @Slf4j
 public class UserController {
     @PostMapping("/listUser")
@@ -44,6 +44,8 @@ public class UserController {
         User user = new User();
         BeanUtils.copyProperties(userVo,user);
         user.setAge(18);
+        Throwable e = new RuntimeException();
+        log.info("inputParams: {} and errorMessage: {}", user.toString(), e.getMessage(), e);
         return JsonResult.getInstant(200,"good",user);
     }
     @GetMapping("/download1")
@@ -65,7 +67,7 @@ public class UserController {
             //inline ：将文件内容直接显示在页面
             //attachment：弹出对话框让用户下载具体例子：
             response.setHeader("Content-Disposition",
-                    "inline;fileName="+ URLEncoder.encode(fileName, "UTF-8"));
+                    "attachment;fileName="+ URLEncoder.encode(fileName, "UTF-8"));
 
             // 通过url获取文件
             File file = new File("C:\\Users\\spark\\Pictures\\2.png");

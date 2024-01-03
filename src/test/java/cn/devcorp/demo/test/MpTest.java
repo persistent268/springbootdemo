@@ -4,6 +4,7 @@ import cn.devcorp.demo.mapper.StudentsMapper;
 import cn.devcorp.demo.pojo.Student;
 import cn.devcorp.demo.pojo.Students;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -79,5 +80,13 @@ public class MpTest {
     public void testSelectOne(){
         Students students = studentsMapper.selectById(10);
         System.out.println(students);
+    }
+    @Test
+    public void testUpdateConditional(){
+        String studentName = null;
+        String subject = null;
+        studentsMapper.update(null,new LambdaUpdateWrapper<Students>()
+                .eq(Students::getSubject,subject)
+                .set(Students::getStudentName,studentName));
     }
 }

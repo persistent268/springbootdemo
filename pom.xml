@@ -86,5 +86,10 @@
             <artifactId>commons-net</artifactId>
             <version>3.3</version>
         </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-core</artifactId>
+            <version>2.2.9</version>
+        </dependency>
     </dependencies>
 </project>

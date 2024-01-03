@@ -48,4 +48,18 @@ public class ExceptionCenter {
 
         return JsonResult.getInstant(ReturnCodeEnum.PARAMETER_NOT_MATCH, result);
     }
+    /**
+     * Description:
+     * <业务异常>
+     * @author wupanhua
+     * @date 15:18 2019/8/8
+     * @param e 1
+     * @return JsonResult
+     **/
+    @ResponseBody
+    @ExceptionHandler(value = {BusinessException.class})
+    public JsonResult<String> businessException(BusinessException e) {
+        log.error("业务异常", e);
+        return JsonResult.getInstant(e.getCode(), e.getMessage());
+    }
 }
