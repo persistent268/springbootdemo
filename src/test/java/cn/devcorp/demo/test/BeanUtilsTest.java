@@ -1,6 +1,7 @@
 package cn.devcorp.demo.test;
 
-import cn.devcorp.demo.pojo.User;
+import cn.devcorp.demo.pojo.*;
+import cn.devcorp.demo.utils.BeanUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,5 +25,30 @@ public class BeanUtilsTest {
         User user = new User();
         BeanUtils.copyProperties(a, user);
         System.out.println(user);
+    }
+    @Test
+    public void testBeanUtilsGet(){
+        Phone phone = new Phone("小米", 133);
+        Mobile mobile = new Mobile();
+        BeanUtils.copyProperties(phone,mobile);
+        System.out.println(mobile);
+    }
+    @Test
+    public void testBeanUtils(){
+        SignTask signTask = new SignTask();
+        signTask.setSignType(1);
+        signTask.setTaskName("signTask");
+        SignTaskDto signTaskDto = new SignTaskDto();
+        BeanUtils.copyProperties(signTask,signTaskDto);
+        System.out.println(signTaskDto);
+    }
+    @Test
+    public void testBeanUtil(){
+        SignTask signTask = new SignTask();
+        signTask.setSignType(1);
+        signTask.setTaskName("signTask");
+        SignTaskDto signTaskDto = new SignTaskDto();
+        BeanUtil.copyProperties(signTask,signTaskDto);
+        System.out.println(signTaskDto);
     }
 }

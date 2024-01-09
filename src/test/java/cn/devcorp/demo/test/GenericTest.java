@@ -1,6 +1,7 @@
 package cn.devcorp.demo.test;
 
 import cn.devcorp.demo.pojo.Author;
+import cn.devcorp.demo.pojo.Pair;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -26,5 +27,10 @@ public class GenericTest {
         List<Author> authorList = Arrays.asList(new Author("a",15),new Author("b",22),
                 new Author("c",18));
 //        authorList.stream().sorted(Comparator.reverseOrder());
+    }
+    @Test
+    public void testGen(){
+        Pair<String> stringPair = new Pair<>();
+        stringPair.setName("zs");
     }
 }
