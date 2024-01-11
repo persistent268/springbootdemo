@@ -1,7 +1,9 @@
 package cn.devcorp.demo.test;
 
+import cn.devcorp.demo.pojo.Person;
 import cn.devcorp.demo.pojo.User;
 import cn.devcorp.demo.pojo.Users;
+import cn.devcorp.demo.result.ResultVo;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -35,5 +37,24 @@ public class FastJsonTest {
         });
         usersList.forEach(System.out::println);
         usersList1.forEach(System.out::println);
+    }
+    @Test
+    public void testJsonDeSerialize(){
+        String jsonStr = "{\"address\":\"北京\",\"age\":23,\"name\":\"tom\"}";
+        //反序列化为Person对象
+        Person person = JSON.parseObject(jsonStr, Person.class);
+        //返回给调用端ResultVo
+        ResultVo<Person> personResultVo = ResultVo.buildSuccess(person);
+        //序列化返回给调用端
+        String voJsonStr = JSON.toJSONString(personResultVo);
+        //调用端把voJsonStr反序列化为对象
+        //反序列化不能获取泛型类型,所以getData返回的就是Object
+//        ResultVo resultVo = JSON.parseObject(voJsonStr, ResultVo.class);
+//        System.out.println("resultVo = " + resultVo);
+//        Object data = resultVo.getData();
+//        System.out.println(data.getClass());
+        ResultVo<Person> resultVo = JSON.parseObject(voJsonStr, new TypeReference<ResultVo<Person>>() {
+        });
+        Person data = resultVo.getData();
     }
 }

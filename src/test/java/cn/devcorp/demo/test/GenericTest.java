@@ -5,9 +5,7 @@ import cn.devcorp.demo.pojo.Pair;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Description: TODO
@@ -32,5 +30,13 @@ public class GenericTest {
     public void testGen(){
         Pair<String> stringPair = new Pair<>();
         stringPair.setName("zs");
+    }
+    @Test
+    public void testEure(){
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("hello", "你好");
+        map.put("how are you?", "吃了没？");
+        System.out.println(map.get("hello"));
+        System.out.println(map.get("how are you?"));
     }
 }

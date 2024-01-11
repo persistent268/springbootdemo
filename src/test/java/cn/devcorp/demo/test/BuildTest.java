@@ -22,4 +22,9 @@ public class BuildTest {
         Person person = Person.builder().name(null).age(18).address("bj").build();
         System.out.println(person);
     }
+    @Test
+    public void parseNull(){
+        Long aLong = Long.valueOf(null);
+        System.out.println(aLong);
+    }
 }

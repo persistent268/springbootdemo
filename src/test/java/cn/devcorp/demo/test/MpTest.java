@@ -5,6 +5,7 @@ import cn.devcorp.demo.pojo.Student;
 import cn.devcorp.demo.pojo.Students;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -88,5 +89,14 @@ public class MpTest {
         studentsMapper.update(null,new LambdaUpdateWrapper<Students>()
                 .eq(Students::getSubject,subject)
                 .set(Students::getStudentName,studentName));
+    }
+    @Test
+    public void testMpUpdate(){
+        //UPDATE students SET score=? WHERE (student_id = ?)
+        Students students = new Students();
+        students.setScore(100);
+        LambdaUpdateWrapper<Students> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.eq(Students::getId,3);
+        studentsMapper.update(students,updateWrapper);
     }
 }

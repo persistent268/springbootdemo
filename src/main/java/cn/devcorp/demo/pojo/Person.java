@@ -1,7 +1,6 @@
 package cn.devcorp.demo.pojo;
 
-import lombok.Builder;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * Description: TODO
@@ -15,7 +14,9 @@ import lombok.ToString;
  * </pre>
  */
 @Builder
-@ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person {
     private String name;
     private Integer age;
