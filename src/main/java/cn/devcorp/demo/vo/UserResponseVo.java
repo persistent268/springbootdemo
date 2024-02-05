@@ -19,4 +19,7 @@ import lombok.NoArgsConstructor;
 public class UserResponseVo {
     private String name;
     private Integer age;
+    public String getHi(){
+        return "hello world";
+    }
 }

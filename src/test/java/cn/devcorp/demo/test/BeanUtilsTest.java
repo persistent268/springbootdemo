@@ -1,7 +1,7 @@
 package cn.devcorp.demo.test;
 
 import cn.devcorp.demo.pojo.*;
-import cn.devcorp.demo.utils.BeanUtil;
+import cn.devcorp.demo.utils.BeanUtilsMy;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,7 +48,7 @@ public class BeanUtilsTest {
         signTask.setSignType(1);
         signTask.setTaskName("signTask");
         SignTaskDto signTaskDto = new SignTaskDto();
-        BeanUtil.copyProperties(signTask,signTaskDto);
+        BeanUtilsMy.copyProperties(signTask,signTaskDto);
         System.out.println(signTaskDto);
     }
 }

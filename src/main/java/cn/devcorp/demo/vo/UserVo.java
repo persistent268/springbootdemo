@@ -3,6 +3,7 @@ package cn.devcorp.demo.vo;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * Description: TODO
@@ -21,4 +22,8 @@ public class UserVo {
     private String name;
     @NotNull
     private String password;
+    private List<UserResponseVo> userResponseVo;
+    public String getSex(){
+        return "男";
+    }
 }

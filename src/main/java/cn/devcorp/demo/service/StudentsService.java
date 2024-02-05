@@ -15,4 +15,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </pre>
  */
 public interface StudentsService extends IService<Students> {
+    String add() throws InterruptedException;
+
 }

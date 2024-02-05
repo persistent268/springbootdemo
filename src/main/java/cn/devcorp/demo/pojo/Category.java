@@ -1,5 +1,6 @@
 package cn.devcorp.demo.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -14,6 +15,7 @@ import lombok.Data;
  * </pre>
  */
 @Data
+@AllArgsConstructor
 public class Category {
     private Integer cid;
     private String cname;

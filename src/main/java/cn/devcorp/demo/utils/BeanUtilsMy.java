@@ -14,7 +14,7 @@ import cn.devcorp.demo.pojo.SignTaskDto;
  *      Copyright (c) 2019. All Rights Reserved.
  * </pre>
  */
-public class BeanUtil {
+public class BeanUtilsMy {
     public static SignTaskDto copyProperties(SignTask source,SignTaskDto target){
         //获取target里的所有属性,即taskName,signType.依次赋值给source里相应的属性
         //遍历target类里的所有属性

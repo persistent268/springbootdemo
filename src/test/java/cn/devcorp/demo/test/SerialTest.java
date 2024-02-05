@@ -65,6 +65,7 @@ public class SerialTest {
     @Test
     public void testSerialize() {
         CountryDTO countryDTO = new CountryDTO();
+        countryDTO.setCountry("中国");
         String str = JSON.toJSONString(countryDTO);
         System.out.println(str);
     }

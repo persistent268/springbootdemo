@@ -1,11 +1,13 @@
 package cn.devcorp.demo.controller;
 
+import cn.devcorp.demo.annocation.EsealAuditLog;
 import cn.devcorp.demo.pojo.User;
 import cn.devcorp.demo.result.GeneralCode;
 import cn.devcorp.demo.result.JsonResult;
 import cn.devcorp.demo.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -39,6 +41,7 @@ import java.util.UUID;
 @Slf4j
 public class UserController {
     @PostMapping("/listUser")
+    @EsealAuditLog
     public JsonResult<User> listUser(@Valid @RequestBody UserVo userVo){
         System.out.println(userVo.getName());
         User user = new User();

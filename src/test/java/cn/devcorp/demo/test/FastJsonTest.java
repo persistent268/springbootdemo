@@ -57,4 +57,10 @@ public class FastJsonTest {
         });
         Person data = resultVo.getData();
     }
+    @Test
+    public void testJson(){
+        Person person = new Person();
+        person.setName("张三");
+        System.out.println(JSON.toJSONString(person));
+    }
 }
