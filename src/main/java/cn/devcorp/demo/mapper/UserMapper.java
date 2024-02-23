@@ -23,4 +23,7 @@ public interface UserMapper extends BaseMapper<User> {
     User queryUserOrders(@Param("id") Long id);
 
     User selectByIdDefine(@Param("id") Long id);
+
+    User queryUserOneByWhere(User userVo);
+
 }

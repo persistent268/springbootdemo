@@ -35,4 +35,13 @@
     <select id="selectByIdDefine" resultType="cn.devcorp.demo.pojo.User">
         select * from user where id = #{id}
     </select>
+    <select id="queryUserOneByWhere" resultType="cn.devcorp.demo.pojo.User">
+        select * from user
+        <where>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            and name = #{name}
+        </where>
+    </select>
 </mapper>

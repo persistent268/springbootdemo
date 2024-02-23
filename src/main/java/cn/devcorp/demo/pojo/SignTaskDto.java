@@ -3,6 +3,8 @@ package cn.devcorp.demo.pojo;
 import lombok.Data;
 import lombok.Getter;
 
+import java.util.List;
+
 /**
  * Description: TODO
  *
@@ -14,10 +16,11 @@ import lombok.Getter;
  *      Copyright (c) 2019. All Rights Reserved.
  * </pre>
  */
-@Getter
+@Data
 public class SignTaskDto {
     private String taskName;
     private Integer signType;
+    private List<SignTaskDocument> fileList;
 
     public void setTaskName(String taskName) {
         this.taskName = taskName;
