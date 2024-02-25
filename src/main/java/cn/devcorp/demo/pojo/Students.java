@@ -18,8 +18,7 @@ import lombok.ToString;
  */
 @Data
 public class Students {
-    @TableId("student_id")
-    private Integer id;
+    private Long id;
     private String studentName;
     private String subject;
     private Integer score;

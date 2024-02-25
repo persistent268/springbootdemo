@@ -1,6 +1,8 @@
 package cn.devcorp.demo.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
@@ -16,6 +18,8 @@ import java.time.LocalDateTime;
  * </pre>
  */
 @Data
+@ToString
+@TableName(value = "`order`")
 public class Order {
     private Long id;
     private LocalDateTime orderTime;

@@ -1,19 +1,22 @@
 package cn.devcorp.demo.test;
 
+import cn.devcorp.demo.mapper.OrderMapper;
 import cn.devcorp.demo.mapper.StudentsMapper;
+import cn.devcorp.demo.pojo.Order;
 import cn.devcorp.demo.pojo.Student;
 import cn.devcorp.demo.pojo.Students;
+import cn.devcorp.demo.utils.SnowFlakeUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -31,6 +34,8 @@ import java.util.stream.Collectors;
 public class MpTest {
     @Resource
     private StudentsMapper studentsMapper;
+    @Resource
+    private OrderMapper orderMapper;
     @Test
     public void testSelectMaps(){
         QueryWrapper<Students> queryWrapper = new QueryWrapper<>();
@@ -98,5 +103,43 @@ public class MpTest {
         LambdaUpdateWrapper<Students> updateWrapper = new LambdaUpdateWrapper<>();
         updateWrapper.eq(Students::getId,3);
         studentsMapper.update(students,updateWrapper);
+    }
+    @Test
+    public void testIn(){
+        List<Integer> idList = new ArrayList<>();
+        LambdaQueryWrapper<Students> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.in(Students::getId,idList);
+        List<Students> students = studentsMapper.selectList(queryWrapper);
+        students.forEach(System.out::println);
+    }
+    @Test
+    public void testInsert(){
+        Students students = new Students();
+        students.setStudentName("lisi");
+        students.setSubject("program");
+        students.setScore(90);
+        studentsMapper.insert(students);
+    }
+    @Test
+    public void testSnowFlake(){
+//        System.out.println(SnowFlakeUtil.getID());
+//
+//        System.out.println("1761326571800956929".length());
+//        System.out.println("9223372036854775807".length());
+
+    }
+    @Test
+    public void testLongMax(){
+//        double pow = Math.pow(2, 63) - 1;
+//        System.out.println(pow);
+//        System.out.println(String.valueOf(pow).length());
+        long a = 922337203685477580L;
+    }
+    @Test
+    public void testApply(){
+        LambdaQueryWrapper<Order> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.apply("date_format(order_time,'%Y-%m-%d') = '2023-12-10'");
+        List<Order> orderList = orderMapper.selectList(queryWrapper);
+       orderList.forEach(System.out::println);
     }
 }
