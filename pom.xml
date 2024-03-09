@@ -128,6 +128,11 @@
             <artifactId>guava</artifactId>
             <version>32.0.1-jre</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-client-java -->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client-java</artifactId>
+            <version>5.0.5</version>
+        </dependency>
     </dependencies>
 </project>

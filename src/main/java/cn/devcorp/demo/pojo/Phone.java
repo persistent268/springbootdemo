@@ -18,6 +18,7 @@ import lombok.ToString;
  */
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Phone {
     private String phoneName;
     private Integer no;

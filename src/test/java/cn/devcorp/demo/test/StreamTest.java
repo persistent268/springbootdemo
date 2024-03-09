@@ -67,7 +67,7 @@ public class StreamTest {
                 new Person("李四", 30, "北京"),
                 new Person("张三", 25, "上海"),
                 new Person("赵六", 30, "深圳"),
-                new Person("李四", 40, "北京")
+                new Person("null", null, "北京")
         );
 
         Integer dimension = 1;
