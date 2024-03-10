@@ -40,4 +40,8 @@ public class GitTest {
         System.out.println(builder.build());
 
     }
+    @Test
+    public void updateGit(){
+        System.out.println("更新配置文件,active changeList");
+    }
 }
