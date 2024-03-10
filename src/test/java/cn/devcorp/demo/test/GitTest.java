@@ -44,4 +44,8 @@ public class GitTest {
     public void updateGit(){
         System.out.println("更新配置文件,active changeList");
     }
+    @Test
+    public void testPush(){
+        System.out.println("提交文件");
+    }
 }
