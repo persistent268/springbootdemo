@@ -26,6 +26,7 @@ public class TimeTest {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime localDateTime = now.plusDays(5);
         System.out.println(ChronoUnit.DAYS.between(now,localDateTime));
+        System.out.println("测试");
     }
     @Test
     public void testWorkDay(){
