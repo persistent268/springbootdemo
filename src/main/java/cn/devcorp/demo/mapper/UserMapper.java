@@ -26,4 +26,5 @@ public interface UserMapper extends BaseMapper<User> {
 
     User queryUserOneByWhere(User userVo);
 
+    String selectByDe(String sfl);
 }

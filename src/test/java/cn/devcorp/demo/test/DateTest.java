@@ -96,4 +96,11 @@ public class DateTest {
             System.out.println(s);
         }
     }
+    @Test
+    public void testString(){
+        String str = "hi";
+        str = str.replace(str, "hello");
+        System.gc();
+        System.out.println(str);
+    }
 }

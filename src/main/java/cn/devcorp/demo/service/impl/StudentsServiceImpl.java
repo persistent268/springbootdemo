@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students> implements StudentsService {
     @Override
     public String add() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         return "6";
     }
 }

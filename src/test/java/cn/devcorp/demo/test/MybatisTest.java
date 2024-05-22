@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -61,5 +62,15 @@ public class MybatisTest {
         List<SignTaskDto> querySignTaskDtoList = Collections.emptyList();
         List<SignTaskDocument> collect = querySignTaskDtoList.stream().flatMap(q -> q.getFileList().stream()).collect(Collectors.toList());
         System.out.println(collect);
+    }
+    @Test
+    public void testLongString(){
+        String s = userMapper.selectByDe("Tom");
+        System.out.println(s);
+    }
+    @Test
+    public void testEqual(){
+        boolean equals = Objects.equals(null, null);
+        System.out.println(equals);
     }
 }

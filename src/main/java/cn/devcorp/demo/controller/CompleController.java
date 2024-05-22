@@ -28,14 +28,30 @@ public class CompleController {
     public void com() throws InterruptedException {
         String result = "";
         result = service.add();
-        String finalResult = result;
-        CompletableFuture.runAsync(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        System.out.println(finalResult);
-                    }
-                }
-        );
+        throw  new RuntimeException();
+//        String finalResult = result;
+//        CompletableFuture.runAsync(
+//                new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        System.out.println(2);
+//                    }
+//                }
+//        );
+
+//        CompletableFuture.runAsync(
+//                new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            Thread.sleep(1000);
+//                        } catch (InterruptedException e) {
+//                            throw new RuntimeException(e);
+//                        }
+//                        System.out.println(222);
+//
+//                    }
+//                }
+//        );
     }
 }

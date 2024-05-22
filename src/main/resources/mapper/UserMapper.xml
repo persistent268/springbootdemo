@@ -44,4 +44,7 @@
             and name = #{name}
         </where>
     </select>
+    <select id="selectByDe" resultType="java.lang.String">
+        select id from user where name = #{sfl}
+    </select>
 </mapper>
