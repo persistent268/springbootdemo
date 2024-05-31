@@ -1,6 +1,8 @@
 package cn.devcorp.demo.test;
 
 import cn.devcorp.demo.mapper.CarMapper;
+import net.suuft.libretranslate.Language;
+import net.suuft.libretranslate.Translator;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -39,4 +41,15 @@ public class MybatisMapTest {
         Map<Long,Map<String,Object>> carMap = carMapper.selectMapMap();
         System.out.println("carMap = " + carMap);
     }
+    @Test
+    public void testMapBrand(){
+        Map<String,Map<String,Object>> carMap = carMapper.selectMapBrand();
+        System.out.println("carMap = " + carMap);
+    }
+    @Test
+    public void testTranslate(){
+        Translator.setUrlApi("http://192.168.0.150:5353/translate");
+        System.out.println(Translator.translate(Language.CHINESE, Language.ENGLISH, "今天星期几"));
+    }
+
 }

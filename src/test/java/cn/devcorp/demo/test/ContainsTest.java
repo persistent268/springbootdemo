@@ -42,4 +42,9 @@ public class ContainsTest {
         int lengthOfMonth = YearMonth.of(year, monthValue).lengthOfMonth();
         System.out.println("lengthOfMonth = " + lengthOfMonth);
     }
+    @Test
+    public void testBr(){
+        String content = "工艺\n工艺专业进展顺利\n今天很顺利\n电气\n电气专业进展顺利";
+        System.out.println(content);
+    }
 }

@@ -14,4 +14,7 @@
     <select id="selectMapMap" resultType="java.util.Map">
         select id,car_num carNum,brand,car_type carType from t_car
     </select>
+    <select id="selectMapBrand" resultType="java.util.Map">
+        select id,car_num carNum,brand,car_type carType from t_car
+    </select>
 </mapper>

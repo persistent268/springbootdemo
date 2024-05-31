@@ -25,4 +25,6 @@ public interface CarMapper extends BaseMapper<Car> {
     List<Map<String, Object>> selectMoreMap();
     @MapKey("id")
     Map<Long,Map<String, Object>> selectMapMap();
+    @MapKey("brand")
+    Map<String,Map<String, Object>> selectMapBrand();
 }
