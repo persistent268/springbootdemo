@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static org.bouncycastle.asn1.cms.CMSObjectIdentifiers.data;
 
 /**
  * Description: TODO
@@ -32,6 +31,11 @@ import static org.bouncycastle.asn1.cms.CMSObjectIdentifiers.data;
 public class PoiTest {
     @BeforeEach
     public void init() {
+
+    }
+
+    @Test
+    public void testPaymentHackExample() throws Exception {
         PaymentHackData data = new PaymentHackData();
         List<Goods> goods = new ArrayList<>();
         Goods good = new Goods();
@@ -64,10 +68,6 @@ public class PoiTest {
         data.setGoods2(goods);
         data.setLabors2(labors);
 
-    }
-
-    @Test
-    public void testPaymentHackExample() throws Exception {
         LoopRowTableRenderPolicy hackLoopTableRenderPolicy = new LoopRowTableRenderPolicy();
         LoopRowTableRenderPolicy hackLoopSameLineTableRenderPolicy = new LoopRowTableRenderPolicy(true);
         Configure config = Configure.builder().bind("goods", hackLoopTableRenderPolicy)
@@ -75,6 +75,11 @@ public class PoiTest {
                 .bind("labors2", hackLoopSameLineTableRenderPolicy).build();
         XWPFTemplate template = XWPFTemplate.compile("D:\\dev_yxy\\springbootdemo\\src\\test\\resources\\render_hackloop.docx", config).render(data);
         template.writeToFile("target/out_render_looprow.docx");
+    }
+    @Test
+    public void testBlackDot(){
+      String s =   "\u2022";
+        System.out.println("s = " + s);
     }
 
 }

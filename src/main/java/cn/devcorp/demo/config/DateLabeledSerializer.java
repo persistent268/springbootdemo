@@ -10,7 +10,7 @@ import com.alibaba.fastjson.serializer.ObjectSerializer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
-import org.jetbrains.annotations.Nullable;
+//import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -128,7 +128,7 @@ public class DateLabeledSerializer extends Jdk8DateCodec implements ObjectSerial
         return false;
     }
 
-    @Nullable
+//    @Nullable
     private <T> T getT(Type type, JSONLexer lexer, String text) {
         T t = null; // Initialize t to null. This will also be our default return value.
         lexer.nextToken();
